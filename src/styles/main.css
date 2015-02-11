@@ -8,42 +8,7 @@
 }
 
 #content {
-  margin: 120px 0 3em 0;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 300;
-}
-
-/*.popular-shots {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  line-height: 60px;
-  z-index: 2;
-  background: coral;
-}
-*/
-
-.pages {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: coral;
-  color: white;
-}
-.pages span {
-  display: block;
-  float: left;
-  width: 2em;
-  line-height: 2em;
-  text-align: center;
-  height: 2em;
-  cursor: pointer;
-}
-.pages span:hover {
-  background: white;
-  color: coral;
 }

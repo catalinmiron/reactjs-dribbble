@@ -55,7 +55,7 @@ var Shot = React.createClass({
     return <li className='shot' key={this.props.id}>
       <figure>
         <img src={this.props.image_400_url ? this.props.image_400_url : this.props.image_url} />
-        <figcaption className='shotDetails'>
+        <figcaption className='shot-detail'>
           <a href={this.props.url} target='_blank'>
             {this.props.title}
           </a>

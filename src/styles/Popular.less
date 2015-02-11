@@ -1,25 +1,15 @@
+.clearfix {
+  &:after,
+  &:before {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
 
 .popular-shots {
   list-style: none;
-}
-.popular-shots li {
-  float: left;
-}
-/*.popular-shots a {
-  display: block;
-  float: left;
-  margin: 0;
-  padding: 0 30px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 100;
-  height: 60px;
-  line-height: 60px;
-  color: white;
-  -webkit-transition: all .3s ease;
-  -moz-transition: all .3s ease;
-  transition: all .3s ease;
-  cursor: pointer;
-}*/
-.popular-shots a:hover {
-  background: rgba(255, 255, 255, 0.2);
+  ul {
+    .clearfix();
+  }
 }

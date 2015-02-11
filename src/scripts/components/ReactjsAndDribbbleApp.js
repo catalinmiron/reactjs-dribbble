@@ -19,7 +19,6 @@ var ReactjsAndDribbbleApp = React.createClass({
   render: function() {
     return (
       <div className='main'>
-        <div>Create a navigation</div>
         <div className="main-content">
           <RouteHandler/>
         </div>
