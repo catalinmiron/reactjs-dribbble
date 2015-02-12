@@ -1,13 +1,13 @@
 
 .shot {
   float: left;
+  display: inline-flex;
   width: 33.33%;
   text-align: center;
   padding: 0;
   margin: 0;
   height: auto;
   -webkit-transform: translateZ(0) translate3D(0, 0, 0);
-  margin-bottom: 3em;
   list-style: none;
 
   .shot-detail {
@@ -31,10 +31,19 @@
   img {
     display: inline-block;
     max-width: 100%;
+    height: auto;
     margin: 0;
     padding: 0;
-    height: auto;
-    position: relative;
-    z-index: 3;
+  }
 }
+
+@media all and (max-width: 1000px) {
+  .shot {
+    width: 50%;
+  }
+}
+@media all and (max-width: 500px) {
+  .shot {
+    width: 100%;
+  }
 }
