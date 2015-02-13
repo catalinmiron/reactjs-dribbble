@@ -14,31 +14,9 @@ var {
 
 var content = document.getElementById('content');
 
-var NewContact = React.createClass({
-  render: function () {
-    return <h2>new contact</h2>;
-  }
-});
-
-var Contact = React.createClass({
-  mixins: [ Router.State],
-
-  render: function () {
-    return <div>
-      <h2>Id of the contact is {this.getParams().id}</h2>
-      <h2>{this.getPath()}</h2>
-      <h2>{this.getPathname()}</h2>
-      <h2>{this.getQuery}</h2>
-      <h2>{this.getRoutes()}</h2>
-    </div>
-  }
-});
-
 var routes = (
   <Route handler={ReactjsAndDribbbleApp}>
     <Route name="shots" path="shots/:type" handler={ListShots}/>
-    <Route name="new" path="contact/new" handler={NewContact}/>
-    <Route name="contact" path="contact/:id" handler={Contact}/>
     <NotFoundRoute handler={NotFound}/>
   </Route>
 );
