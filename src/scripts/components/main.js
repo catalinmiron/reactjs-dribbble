@@ -4,13 +4,7 @@ var ListShots = require('./ListShots');
 
 var React = require('react/addons'),
     Router = require('react-router');
-var {
-      Route,
-      DefaultRoute,
-      NotFoundRoute,
-      RouteHandler,
-      Link
-    } = Router;
+var { Route, DefaultRoute, NotFoundRoute, RouteHandler, Link, Redirect } = Router;
 
 var content = document.getElementById('content');
 
@@ -18,6 +12,7 @@ var routes = (
   <Route handler={ReactjsAndDribbbleApp}>
     <Route name="shots" path="shots/:type" handler={ListShots}/>
     <NotFoundRoute handler={NotFound}/>
+    <Redirect from="/" to="shots" params={{ type: 'popular'}} />
   </Route>
 );
 
