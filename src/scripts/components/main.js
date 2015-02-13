@@ -1,6 +1,6 @@
 var ReactjsAndDribbbleApp = require('./ReactjsAndDribbbleApp');
 var NotFound = require('./NotFound');
-var Popular = require('./Popular');
+var ListShots = require('./ListShots');
 
 var React = require('react/addons'),
     Router = require('react-router');
@@ -36,7 +36,7 @@ var Contact = React.createClass({
 
 var routes = (
   <Route handler={ReactjsAndDribbbleApp}>
-    <DefaultRoute handler={Popular}/>
+    <Route name="shots" path="shots/:type" handler={ListShots}/>
     <Route name="new" path="contact/new" handler={NewContact}/>
     <Route name="contact" path="contact/:id" handler={Contact}/>
     <NotFoundRoute handler={NotFound}/>

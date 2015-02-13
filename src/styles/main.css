@@ -7,8 +7,61 @@
   box-sizing: border-box;
 }
 
+body {
+  padding-top: 60px;
+}
+
 #content {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 300;
+}
+
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  line-height: 60px;
+  background: rgba(255,255,255, 0.6);
+  z-index: 1;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.navigation:hover {
+  background: white;
+}
+
+.navigation li {
+  float: left;
+  width: 33.33%;
+  height: inherit;
+  list-style: none;
+  text-align: center;
+}
+.navigation a {
+  display: block;
+  height: inherit;
+  color: coral;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+.navigation a.active {
+  background: mediumturquoise;
+  color: white;
+}
+.navigation a:hover {
+  background: coral;
+  color: white;
 }

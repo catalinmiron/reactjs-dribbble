@@ -1,7 +1,6 @@
 
 .shot {
   float: left;
-  display: inline-flex;
   width: 33.33%;
   text-align: center;
   padding: 0;
@@ -14,8 +13,8 @@
     padding: 1em 0;
 
     a {
-      font-size: 22px;
-      font-weight: 500;
+      font-size: 18px;
+      font-weight: 700;
       line-height: 1.5em;
       display: block;
       color: coral;
@@ -45,5 +44,12 @@
 @media all and (max-width: 500px) {
   .shot {
     width: 100%;
+    .shot-detail {
+    padding: 1em 0;
+
+    a {
+        font-size: 24px;
+      }
+    }
   }
 }

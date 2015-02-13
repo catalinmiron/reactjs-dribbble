@@ -1,6 +1,7 @@
 'use strict';
 
-var React = require('react/addons');
+var React = require('react/addons'),
+    Router = require('react-router');
 
 var Shot = require('./Shot');
 
@@ -8,26 +9,33 @@ var dribbble = require('../lib/dribbble.js');
 var _ = require('lodash');
 var $ = require('jquery');
 
-require('../../styles/Popular.less');
+require('../../styles/ListShots.less');
 
-var Popular = React.createClass({
+var ListShots = React.createClass({
+  mixins: [Router.State],
+
   getInitialState: function() {
     return {
       data: [],
-      page: null,
-      loading: true
+      page: 0
     }
   },
   componentWillMount: function() {
     this.getShots();
   },
 
-  componentDidMount: function() {
+  componentWillReceiveProps: function(nextProps) {
     this.setState({
-      loading: false
+      data: [],
+      page: 0
     });
+    this.getShots();
+  },
+
+  componentDidMount: function() {
     this.scrollChecking();
   },
+
   check: function(){
     var oldPage = this.state.page;
     var window_height = $(document).height(),
@@ -49,14 +57,14 @@ var Popular = React.createClass({
 
   getShots: function() {
     dribbble.get({
-      url: 'https://api.dribbble.com/shots/popular/?page=' + this.state.page,
+      url: 'https://api.dribbble.com/shots/' + this.getParams().type + '/?page=' + this.state.page,
       success: function (response) {
-        this.setPopularShots(response);
+        this.setListShots(response);
       }.bind(this)
     });
   },
 
-  setPopularShots: function(shots) {
+  setListShots: function(shots) {
     var allShots = this.state.data.concat(shots.shots);
     this.setState({
       data: allShots,
@@ -65,8 +73,7 @@ var Popular = React.createClass({
   },
 
   render: function() {
-    return <div className='popular-shots'>
-      <h1>Popular</h1>
+    return <div className='list-shots'>
       {this.renderShot()}
     </div>
   },
@@ -87,5 +94,5 @@ var Popular = React.createClass({
   }
 });
 
-module.exports = Popular;
+module.exports = ListShots;
 
