@@ -5,7 +5,7 @@ var React = require('react/addons'),
 
 var Shot = require('./Shot');
 
-var dribbble = require('../lib/dribbble.js');
+var jribbble = require('../lib/jribbble.js');
 var _ = require('lodash');
 var $ = require('jquery');
 
@@ -20,6 +20,7 @@ var ListShots = React.createClass({
       page: 0
     }
   },
+
   componentWillMount: function() {
     this.getShots();
   },
@@ -43,7 +44,6 @@ var ListShots = React.createClass({
         scroll_position = $(window).scrollTop();
 
     if (window_height - (document_height + scroll_position) < 4000) {
-
       this.setState({
         page: oldPage + 1
       });
@@ -52,23 +52,24 @@ var ListShots = React.createClass({
   },
 
   scrollChecking: function(){
-    $(window).scroll(_.throttle(this.check, 1000));
+    $(window).on('scroll', _.throttle(this.check, 1000));
+  },
+
+  componentWillUnmount: function() {
+    $(window).off('scroll');
   },
 
   getShots: function() {
-    dribbble.get({
-      url: 'https://api.dribbble.com/shots/' + this.getParams().type + '/?page=' + this.state.page,
-      success: function (response) {
-        this.setListShots(response);
-      }.bind(this)
+    jribbble.getShotsByList(this.getParams().type, this.setListShots, {
+      page: this.state.page,
+      per_page: 10
     });
   },
 
   setListShots: function(shots) {
     var allShots = this.state.data.concat(shots.shots);
     this.setState({
-      data: allShots,
-      pages: shots.page
+      data: allShots
     });
   },
 

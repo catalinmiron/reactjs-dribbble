@@ -1,6 +1,8 @@
 'use strict';
 
-var React = require('react/addons');
+var React = require('react/addons'),
+    Router = require('react-router');
+var {Link} = Router;
 
 require('../../styles/Shot.less');
 
@@ -56,9 +58,9 @@ var Shot = React.createClass({
       <figure>
         <img src={this.props.image_400_url ? this.props.image_400_url : this.props.image_url} />
         <figcaption className='shot-detail'>
-          <a href={this.props.url} target='_blank'>
+          <Link to='shot' params={{id: this.props.id}}>
             {this.props.title}
-          </a>
+          </Link>
           <p>by {this.props.player.name}</p>
         </figcaption>
       </figure>

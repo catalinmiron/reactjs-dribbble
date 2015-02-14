@@ -29,7 +29,7 @@ var ReactjsAndDribbbleApp = React.createClass({
           })}
         </ul>
         <div className="main-content">
-          <RouteHandler/>
+          <RouteHandler {...this.props}/>
         </div>
       </div>
     );
