@@ -1,0 +1,45 @@
+.clearfix {
+  &:after,
+  &:before {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+/* Move this in colors.less or create a file called variables where you */
+
+@dribbble-slate-color: #9ba5a8;
+@dribbble-charcoal-color: #333;
+@dribbble-pink-color: #ea4c89;
+@dribbble-green-color: #8aba56;
+@dribbble-pro-color: #ff8833;
+@dribbble-teams-color: #00b6e3;
+
+
+/* Transition mixin */
+
+.transition(@attr: all, @timing: .3s, @timing-function: ease-in-out) {
+  -webkit-transition: @attr @timing @timing-function;
+  -moz-transition: @attr @timing @timing-function;
+  -ms-transition: @attr @timing @timing-function;
+  -o-transition: @attr @timing @timing-function;
+  transition: @attr @timing @timing-function;
+}
+
+
+/* Also make something like general.less / main.less */
+/* Such as typography and baseline */
+
+a {
+  .transition(@attr: color);
+
+  text-decoration: none;
+  font-weight: normal;
+  color: @dribbble-pink-color;
+
+
+  &:hover {
+    color: darken(@dribbble-pink-color, 15%);
+  }
+}

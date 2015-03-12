@@ -1,11 +1,4 @@
-.clearfix {
-  &:after,
-  &:before {
-    content: '';
-    display: block;
-    clear: both;
-  }
-}
+@import "./main.less";
 
 .list-shots {
   list-style: none;
@@ -15,3 +8,49 @@
   }
 }
 
+
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  line-height: 60px;
+  background: rgba(255,255,255, 0.6);
+  z-index: 1;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.navigation:hover {
+  background: white;
+}
+
+.navigation li {
+  float: left;
+  width: 33.33%;
+  height: inherit;
+  list-style: none;
+  text-align: center;
+}
+.navigation a {
+  display: block;
+  height: inherit;
+  color: @dribbble-pink-color;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+.navigation a.active,
+.navigation a:hover {
+  background: @dribbble-pink-color;
+  color: white;
+}

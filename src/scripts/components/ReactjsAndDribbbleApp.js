@@ -12,6 +12,7 @@ var {RouteHandler, Link } = Router;
 // CSS
 require('../../styles/normalize.css');
 require('../../styles/main.css');
+require('../../styles/main.less');
 
 var listType = ['popular', 'everyone', 'debuts'];
 

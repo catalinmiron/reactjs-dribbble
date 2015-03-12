@@ -124,31 +124,41 @@ var ShotDetails = React.createClass({
   },
 
   render: function () {
-    var Shot = this.state.shot;
-    return <div className="shot-details">
-      <img src={Shot.image_url} />
-      <h2><a href={Shot.url} target="_blank">{Shot.title}</a></h2>
-      <hr />
-      <ul>
-        <li>
-          <p>{"Views: " + Shot.views_count}</p>
-        </li>
-        <li>
-          <p>{"Likes: " + Shot.likes_count}</p>
-        </li>
-        <li>
-          <p>{"Comments: " + Shot.comments_count}</p>
-        </li>
-        <li>
-          <p>{"Rebounds: " + Shot.rebounds_count}</p>
-        </li>
-      </ul>
-      <hr />
-      <div dangerouslySetInnerHTML={{__html: Shot.description}} />
-      <a href="#"
-         onClick={this.showPlayerShots}
-         ref="showPlayerShots">View other shots by {Shot.player.username}</a>
-      <div>{!_.isEmpty(this.state.shots) ? this.renderPlayerShots() : null}</div>
+    var shot = this.state.shot;
+    return <div className="shot-wrapper">
+      <div className="shot-details">
+        <div className="shot-image">
+          <img src={shot.image_url} />
+        </div>
+        <div className="shot-content">
+          <h2>
+            <a href={shot.url} target="_blank">{shot.title}</a>
+          </h2>
+          <p className="author-name">by <b>{shot.player.name}</b></p>
+          <ul>
+            <li>
+              <p>Views: <span className="shot-counter">{shot.views_count}</span></p>
+            </li>
+            <li>
+              <p>Likes: <span className="shot-counter">{shot.likes_count}</span></p>
+            </li>
+            <li>
+              <p>Comments: <span className="shot-counter">{shot.comments_count}</span></p>
+            </li>
+            <li>
+              <p>Rebounds: <span className="shot-counter">{shot.rebounds_count}</span></p>
+            </li>
+          </ul>
+          <div className="shot-html-content"
+               dangerouslySetInnerHTML={{__html: shot.description}} />
+        </div>
+      </div>
+      <div className="shots-from-player">
+        <a href="#"
+           onClick={this.showPlayerShots}
+           ref="showPlayerShots">View other shots by {shot.player.username}</a>
+        <div>{!_.isEmpty(this.state.shots) ? this.renderPlayerShots() : null}</div>
+      </div>
     </div>;
   },
 

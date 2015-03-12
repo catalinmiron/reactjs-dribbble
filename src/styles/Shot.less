@@ -1,3 +1,4 @@
+@import "./main.less";
 
 .shot {
   float: left;
@@ -6,8 +7,12 @@
   padding: 0;
   margin: 0;
   height: auto;
-  -webkit-transform: translateZ(0) translate3D(0, 0, 0);
   list-style: none;
+
+  -webkit-transform: translateZ(0) translate3D(0, 0, 0);
+  -moz-transform: translateZ(0) translate3D(0, 0, 0);
+  -ms-transform: translateZ(0) translate3D(0, 0, 0);
+  transform: translateZ(0) translate3D(0, 0, 0);
 
   .shot-detail {
     padding: 1em 0;
@@ -17,7 +22,7 @@
       font-weight: 700;
       line-height: 1.5em;
       display: block;
-      color: coral;
+      color: @dribbble-pink-color;
       text-decoration: none;
     }
 
