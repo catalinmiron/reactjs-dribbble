@@ -1,28 +1,59 @@
 @import "./main.less";
 
 .shot {
-  float: left;
-  width: 33.33%;
+  position: relative;
   text-align: center;
   padding: 0;
   margin: 0;
-  height: auto;
+  width: 33.3%;
+  float: left;
   list-style: none;
+  overflow: hidden;
 
   -webkit-transform: translateZ(0) translate3D(0, 0, 0);
   -moz-transform: translateZ(0) translate3D(0, 0, 0);
   -ms-transform: translateZ(0) translate3D(0, 0, 0);
   transform: translateZ(0) translate3D(0, 0, 0);
 
+  figure {
+    background: red;
+    float: left;
+    display: block;
+    width: 99%;
+  }
+  .shot-overlay {
+    .transition();
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: fade(@dribbble-pink-color, 90%);
+    transform: translate3D(0, 0, 0) translateY(100%);
+    visibility: hidden;
+  }
   .shot-detail {
+    .transition(@timing: .2s, @delay: .1s);
+
     padding: 1em 0;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    padding: 0 5%;
+    transform: translate3D(0, 0, 0) translate(-50%, 100%);
+    opacity: 0;
 
     a {
-      font-size: 18px;
+      font-size: 22px;
+      margin-bottom: .5em;
+      text-transform: uppercase;
+      letter-spacing: -.01em;
       font-weight: 700;
-      line-height: 1.5em;
       display: block;
-      color: @dribbble-pink-color;
+      color: white;
       text-decoration: none;
     }
 
@@ -33,11 +64,28 @@
   }
 
   img {
-    display: inline-block;
-    max-width: 100%;
+    .transition();
+
+    display: block;
+    width: 100%;
     height: auto;
-    margin: 0;
-    padding: 0;
+    transform: scale(1);
+    -webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
+    backface-visibility: hidden;
+  }
+
+  &:hover {
+    .shot-overlay {
+      visibility: visible;
+      transform: translate3D(0, 0, 0) translateY(0);
+    }
+    .shot-detail {
+      opacity: 1;
+      transform: translate3D(0, 0, 0) translate(-50%, -50%);
+    }
+    img {
+      transform: scale(1.05);
+    }
   }
 }
 
@@ -56,5 +104,12 @@
         font-size: 24px;
       }
     }
+  }
+}
+@media all and (min-width: 1200px) {
+  .shot {
+    width: 25%;
+    margin: 0;
+    padding: 0;
   }
 }

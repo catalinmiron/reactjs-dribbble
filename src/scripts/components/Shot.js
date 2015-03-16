@@ -57,6 +57,7 @@ var Shot = React.createClass({
     return <li className='shot' key={this.props.id}>
       <figure>
         <img src={this.props.image_400_url ? this.props.image_400_url : this.props.image_url} />
+        <div className="shot-overlay"></div>
         <figcaption className='shot-detail'>
           <Link to='shot' params={{id: this.props.id}}>
             {this.props.title}

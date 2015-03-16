@@ -19,12 +19,12 @@
 
 /* Transition mixin */
 
-.transition(@attr: all, @timing: .3s, @timing-function: ease-in-out) {
-  -webkit-transition: @attr @timing @timing-function;
-  -moz-transition: @attr @timing @timing-function;
-  -ms-transition: @attr @timing @timing-function;
-  -o-transition: @attr @timing @timing-function;
-  transition: @attr @timing @timing-function;
+.transition(@attr: all, @timing: .3s, @delay: 0, @timing-function: ease-in-out) {
+  -webkit-transition: @attr @timing @delay @timing-function;
+  -moz-transition: @attr @timing @delay @timing-function;
+  -ms-transition: @attr @timing @delay @timing-function;
+  -o-transition: @attr @timing @delay @timing-function;
+  transition: @attr @timing @delay @timing-function;
 }
 
 

@@ -55,7 +55,7 @@ require('../../styles/ShotDetails.less');
 */
 
 var ShotDetails = React.createClass({
-  mixins: [ Router.State ],
+  mixins: [Router.State],
 
   getInitialState: function() {
     return {
@@ -115,7 +115,6 @@ var ShotDetails = React.createClass({
   },
 
   getPlayerShots: function() {
-    console.log(this.state.shot.player.username);
     jribbble.getShotsByPlayerId(this.state.shot.player.username,
                                 this._setPlayerShots, {
                                   page: this.state.page,
