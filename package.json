@@ -1,0 +1,14 @@
+{
+  "name": "Dribbblreact",
+  "version": "0.0.1",
+  "description": "Awesome curated dribbble app using reactjs",
+  "repository": "https://github.com/catalinmiron/reactjs-dribbble",
+  "private": false,
+  "src": "src",
+  "dist": "dist",
+  "mainInput": "main",
+  "mainOutput": "main",
+  "dependencies": {
+    "statik": "~1.2.5"
+  }
+}
